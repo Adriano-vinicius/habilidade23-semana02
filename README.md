@@ -30,6 +30,11 @@ Nesta semana, o foco não é fazer o robô completar uma missão. O foco é prov
 - Git
 - GitHub
 
+## Vendor libraries:
+- Verificação realizada no VS Code/WPILib.
+- Nenhuma vendor library adicional foi adicionada no Dia 1.
+- Será adicionada apenas quando houver necessidade técnica do hardware/sensor/controlador.
+
 ## Estrutura do projeto
 
 ```text
