@@ -1,1 +1,0 @@
-# skill23-semana02
