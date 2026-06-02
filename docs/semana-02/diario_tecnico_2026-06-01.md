@@ -71,6 +71,9 @@ Instalar e conferir o ambiente oficial de desenvolvimento com WPILib, VS Code, v
 - Correção: Inserir o número informado pelo treinador ou usar um valor temporário até receber o número oficial.
 - Reteste: Confirmar se o projeto é gerado corretamente.
 
+### Falha 3 
+O MockDS oficial da Studica foi pesquisado e testado, mas a vendor library disponível para VMX/Studica está incompatível com o projeto WPILib/GradleRIO 2026 atual. O GradleRIO bloqueou a dependência porque o arquivo Studica não possui ano válido para 2026. Por isso, o projeto foi mantido compilando com logs de enable/disable usando a DriverStation/WPILib, e a pendência do MockDS ficou registrada para validação com uma vendor library Studica 2026 compatível.
+
 ## Evidências geradas ou planejadas
 
 - Print do projeto aberto no VS Code.
