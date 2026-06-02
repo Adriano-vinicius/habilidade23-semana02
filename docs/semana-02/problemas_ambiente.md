@@ -40,6 +40,15 @@ O erro "Invalid Base Folder" deve desaparecer e o projeto deve poder ser gerado.
 Print da tela do WPILib New Project Creator com o erro ou print posterior com a pasta correta selecionada.
 
 ---
+## Problema 2: MockDS não reconhecido no projeto Java
+
+### Sintoma
+Ao importar a classe MockDS no Robot.java:
+
+```java
+import com.studica.frc.MockDS;
+
+---
 
 ## Problemas pendentes de verificação
 
