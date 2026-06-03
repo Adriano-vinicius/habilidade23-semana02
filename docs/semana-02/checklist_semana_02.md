@@ -19,19 +19,19 @@ Validar o ambiente oficial de desenvolvimento com WPILib, VS Code, estrutura ofi
 - [x] WPILib instalado ou conferido
 - [x] Projeto WPILib Java criado
 - [x] Projeto aberto na pasta raiz correta
-- [ ] Arquivos Gradle visíveis na raiz
-- [ ] Extensão WPILib disponível no VS Code
-- [ ] Git disponível no terminal
-- [ ] MockDS instalado ou acessível
+- [x] Arquivos Gradle visíveis na raiz
+- [x] Extensão WPILib disponível no VS Code
+- [x] Git disponível no terminal
+- [x] MockDS instalado ou acessível
 
 ## Estrutura do projeto
 
 - [x] Projeto criado com o nome habilidade23-semana02
 - [x] Projeto criado em Java
-- [ ] Arquivo build.gradle identificado
-- [ ] Arquivo settings.gradle identificado
-- [ ] Pasta src identificada
-- [ ] Estrutura oficial do projeto conferida
+- [x] Arquivo build.gradle identificado
+- [x] Arquivo settings.gradle identificado
+- [x] Pasta src identificada
+- [x] Estrutura oficial do projeto conferida
 
 ## Build
 
@@ -43,11 +43,11 @@ Validar o ambiente oficial de desenvolvimento com WPILib, VS Code, estrutura ofi
 
 ## MockDS
 
-- [ ] MockDS aberto
-- [ ] Ambiente permite teste básico
-- [ ] Print do MockDS salvo
-- [ ] Teste de enable/disable realizado, se possível
-- [ ] Log de enable/disable salvo, se possível
+- [x] MockDS aberto
+- [x] Ambiente permite teste básico
+- [x] Print do MockDS salvo
+- [x] Teste de enable/disable realizado, se possível
+- [x] Log de enable/disable salvo, se possível
 
 ## Documentação
 
@@ -57,8 +57,8 @@ Validar o ambiente oficial de desenvolvimento com WPILib, VS Code, estrutura ofi
 - [x] problemas_ambiente.md criado
 - [x] README.md criado
 - [ ] README atualizado com instruções reais de abertura, build e MockDS
-- [ ] Diário técnico preenchido com ações do dia
-- [ ] Problemas de ambiente registrados
+- [x] Diário técnico preenchido com ações do dia
+- [x] Problemas de ambiente registrados
 
 ## Evidências
 
@@ -67,10 +67,10 @@ Validar o ambiente oficial de desenvolvimento com WPILib, VS Code, estrutura ofi
 - [x] Pasta evidencias/semana-02/logs criada
 - [x] Pasta evidencias/semana-02/videos criada
 - [x] Pasta evidencias/semana-02/fotos criada
-- [ ] Print do projeto aberto salvo
-- [ ] Print do build salvo
-- [ ] Print do MockDS salvo
-- [ ] Log salvo, se houver
+- [x] Print do projeto aberto salvo
+- [x] Print do build salvo
+- [x] Print do MockDS salvo
+- [x] Log salvo, se houver
 - [ ] Vídeo curto gravado, se possível
 
 ## Git
