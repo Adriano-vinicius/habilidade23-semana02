@@ -35,9 +35,15 @@ Nesta semana, o foco não é fazer o robô completar uma missão. O foco é prov
 - Nenhuma vendor library adicional foi adicionada no Dia 1.
 - Será adicionada apenas quando houver necessidade técnica do hardware/sensor/controlador.
 
+## Como execultar
+- Requisitos: VS Code, WPILib Extension e JDK instalado.  
+- Como Abrir: Abrir a pasta raiz HABILIDADE23-SEMANA02 diretamente no VS Code.  
+- Como Compilar: Usar o comando de atalho ou clicar no ícone da WPILib e selecionar Build Robot Code.  
+- Como Testar: Executar Simulate Robot Code on Desktop, selecionar a extensão de simulação e utilizar a janela de estados para habilitar/desabilitar o robô.
+
 ## Estrutura do projeto
 
-{```text
+```text
 habilidade23-semana02/
 README.md
 docs/
@@ -55,10 +61,4 @@ src/
 build.gradle
 settings.gradle
 gradlew
-gradlew.bat}
-
-## Como execultar
-- Requisitos: VS Code, WPILib Extension e JDK instalado.  
-- Como Abrir: Abrir a pasta raiz HABILIDADE23-SEMANA02 diretamente no VS Code.  
-- Como Compilar: Usar o comando de atalho ou clicar no ícone da WPILib e selecionar Build Robot Code.  
-- Como Testar: Executar Simulate Robot Code on Desktop, selecionar a extensão de simulação e utilizar a janela de estados para habilitar/desabilitar o robô.
+gradlew.bat
