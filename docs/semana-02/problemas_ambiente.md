@@ -45,10 +45,32 @@ Print da tela do WPILib New Project Creator com o erro ou print posterior com a 
 ### Sintoma
 Ao importar a classe MockDS no Robot.java:
 
-```java
-import com.studica.frc.MockDS;
+{```java
+import com.studica.frc.MockDS;}
 
 ---
+## Problema 3:
+Problema: Ausência do software externo MockDS no ambiente doméstico, visto que o manual prevê sua utilização direta na bancada de treino.  
+
+Solução/Contorno: Utilizada a simulação nativa de Driver Station integrada à GUI do WPILib Simulation para alternar os estados do robô (Enable/Disable) e validar com sucesso a geração dos logs de telemetria exigidos.
+
+---
+
+## Problema 4:
+Erro de Sintaxe no Registro de Tempo:
+
+Sintoma: Método getTimer() sublinhado em vermelho impedindo o Build.Causa: Confusão de sintaxe com o método nativo da WPILib.
+
+Solução: Substituído pelo método estático correto Timer.getFPGATimestamp() e adicionado o import edu.wpi.first.wpilibj.Timer;.  
+
+## Problema 5:
+Ausência do Software MockDS:
+
+Sintoma: Impossibilidade de executar o fluxo externo em ambiente doméstico.  
+
+Causa: O MockDS é uma ferramenta de bancada pré-instalada no laboratório.  
+
+Solução: Utilizado o painel interno de Driver Station do ambiente de simulação nativo (WPILib Simulation GUI) para transicionar os modos de operação e coletar as evidências.
 
 ## Problemas pendentes de verificação
 

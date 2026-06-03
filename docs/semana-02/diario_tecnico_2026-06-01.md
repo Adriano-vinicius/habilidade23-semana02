@@ -100,6 +100,19 @@ O MockDS oficial da Studica foi pesquisado e testado, mas a vendor library dispo
 - O MockDS será usado para testar o fluxo de enable/disable.
 - As evidências precisam ter contexto, data e relação com o que foi testado.
 
+## Métricas Coletadas:  
+
+- Tempo de Setup: 10 minutos.  
+- Tempo de Checklist: 15 minutos.  
+- Tempo de Build: 1 minuto.  
+- Tempo de Diagnóstico: 2 horas.  
+- Tempo de Recovery: 10 minutos.
+
+## Respostas de Avaliação Técnica (Itens obrigatórios do manual):  
+- O que um build bem-sucedido prova e o que ele ainda não prova? Prova que a sintaxe do Java está correta e as dependências estão resolvidas; não prova que a lógica do robô funcionará em pista ou que os motores se moverão de forma certa.  
+- Qual a responsabilidade do primeiro subsistema criado (SystemHealth)? Centralizar e gerenciar as mensagens de diagnóstico de integridade e transições de estado do robô sem poluir o arquivo principal.  
+- Por que colocar tudo no arquivo principal (Robot.java) prejudica o fault-finding? Porque gera um código monolítico denso, dificultando a localização rápida de bugs específicos e violando a modularidade da WPILib.
+
 ## O que ainda preciso corrigir ou finalizar
 
 - Executar o build.

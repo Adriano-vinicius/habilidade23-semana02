@@ -18,7 +18,7 @@ Validar o ambiente oficial de desenvolvimento com WPILib, VS Code, estrutura ofi
 - [x] VS Code instalado ou conferido
 - [x] WPILib instalado ou conferido
 - [x] Projeto WPILib Java criado
-- [ ] Projeto aberto na pasta raiz correta
+- [x] Projeto aberto na pasta raiz correta
 - [ ] Arquivos Gradle visíveis na raiz
 - [ ] Extensão WPILib disponível no VS Code
 - [ ] Git disponível no terminal
@@ -35,11 +35,11 @@ Validar o ambiente oficial de desenvolvimento com WPILib, VS Code, estrutura ofi
 
 ## Build
 
-- [ ] Build executado
-- [ ] Resultado do build registrado
-- [ ] Print ou log do build salvo
-- [ ] Em caso de erro, mensagem copiada no diário técnico
-- [ ] Em caso de erro, causa provável registrada em problemas_ambiente.md
+- [x] Build executado
+- [x] Resultado do build registrado
+- [x] Print ou log do build salvo
+- [x] Em caso de erro, mensagem copiada no diário técnico
+- [x] Em caso de erro, causa provável registrada em problemas_ambiente.md
 
 ## MockDS
 
@@ -75,11 +75,19 @@ Validar o ambiente oficial de desenvolvimento com WPILib, VS Code, estrutura ofi
 
 ## Git
 
-- [ ] git status executado
-- [ ] Commit da criação/validação do projeto feito
-- [ ] Commit da documentação feito
-- [ ] Commit das evidências feito
-- [ ] Push enviado para o GitHub
+- [x] git status executado
+- [x] Commit da criação/validação do projeto feito
+- [x] Commit da documentação feito
+- [x] Commit das evidências feito
+- [x] Push enviado para o GitHub
+
+## Outros
+- [x] VS Code abre normalmente / Extensão WPILib disponível.  
+- [x] Projeto aberto na pasta raiz correta / Arquivos Gradle visíveis.  
+- [x] Template Java identificado e modificado.  
+- [x] Build executado e bem-sucedido.  
+- [x] Fluxo de disabled e enabled testado na simulação.  
+- [x] Classe de telemetria/subsistema criada e instanciada como objeto. 
 
 ## Autoavaliação antes de chamar o treinador
 
