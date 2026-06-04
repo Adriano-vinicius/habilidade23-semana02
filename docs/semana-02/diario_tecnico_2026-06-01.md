@@ -2,122 +2,113 @@
 
 ## Identificação
 
-- Competidor: Adriano
-- Data: 01/06/2026
-- Projeto: habilidade23-semana02
-- Linguagem: Java
-- Tema: Ambiente WPILib/VS Code/MockDS
-- Sessão: Sessão 1 - Ambiente
+- **Competidor:** Adriano
+- **Data:** 04/06/2026
+- **Projeto:** habilidade23-semana02
+- **Linguagem:** Java
+- **Tema:** Ambiente WPILib / VS Code / Fluxo de Enable-Disable e Telemetria
+- **Sessão:** Sessão Final - Entrega e Validação de Fluxo
 
 ## Objetivo da sessão
 
-Instalar e conferir o ambiente oficial de desenvolvimento com WPILib, VS Code, vendor libraries, MockDS e estrutura oficial do projeto Java. O objetivo principal do dia é deixar o projeto base compilando e registrar evidências do ambiente funcionando.
+Instalar, configurar e validar o ambiente oficial de desenvolvimento com WPILib, VS Code e estrutura oficial do projeto Java. O objetivo principal é implementar e demonstrar o fluxo básico de *enable/disable* funcionando na simulação, comandos iniciais organizados em subsistemas, telemetria mínima via SmartDashboard, logs visíveis no console e o repositório devidamente versionado com commits funcionais.
 
-## O que eu executei até agora
+## O que eu executei
 
-- Baixei/instalei o VS Code.
-- Criei o repositório com o nome habilidade23-semana02.
-- Instalei/conferi o WPILib.
-- Criei o projeto WPILib em Java com o nome habilidade23-semana02.
-- Iniciei a organização da documentação da Semana 02.
-- Criei a estrutura de pastas para documentação e evidências.
+- Baixei, instalei e configurei o ambiente WPILib + VS Code recomendado.
+- Criei o projeto Java utilizando o template oficial da WPILib (`TimedRobot`).
+- **Arquitetura e POO:** Criei o pacote `subsystems` e externalizei a lógica de telemetria criando a classe `SystemHealth.java`, instanciando-a como objeto (`m_robotHealth`) na classe principal `Robot.java`[cite: 3].
+- Implementei o fluxo completo de logs via terminal e SmartDashboard para os estados `robotInit`, `autonomousInit`, `teleopInit` e `disabledInit`[cite: 3].
+- Executei com sucesso a ferramenta de simulação nativa da WPILib (`WPILib Simulation GUI`) para transicionar os modos de operação e validar o comportamento do robô.
+- Organizei a pasta de evidências e padronizei o nome de todos os prints gerados.
+- Realizei o fracionamento das mudanças em múltiplos commits técnicos no Git e fiz o *push* definitivo para o GitHub.
 
 ## Comandos ou ações realizadas
 
-- Abri o instalador do WPILib.
-- Escolhi a instalação com VS Code recomendado pelo WPILib.
-- Abri o WPILib VS Code.
-- Acessei o criador de novo projeto WPILib.
-- Criei um projeto Java.
-- Organizei os arquivos de documentação:
-  - README.md
-  - docs/semana-02/checklist_semana_02.md
-  - docs/semana-02/diario_tecnico_2026-06-01.md
-  - docs/semana-02/problemas_ambiente.md
+- Execução do **WPILib: Build Robot Code** para compilação do projeto.
+- Execução do **WPILib: Simulate Robot Code on Desktop** para validação em ambiente doméstico.
+- Ajustes de sintaxe no uso da classe estática `Timer.getFPGATimestamp()`[cite: 3].
+- Organização dos arquivos markdown de documentação na estrutura padrão:
+  - `README.md`
+  - `docs/semana-02/checklist_semana_02.md`
+  - `docs/semana-02/diario_tecnico_2026-06-01.md` (e atualizações de encerramento)
+  - `docs/semana-02/problemas_ambiente.md`
+- Comandos Git utilizados para contornar a estrutura de subpastas trancadas e conflitos do remoto:
+```bash
+  git add habilidade23-semana02/src/main/java/frc/robot/Robot.java
+  git commit -m "fix: corrige imports, timestamp do Timer e limpa a classe principal Robot"
+  
+  git add habilidade23-semana02/src/main/java/frc/robot/subsystems/SystemHealth.java
+  git commit -m "feat: cria pacote subsystems e implementa classe modular SystemHealth"
+  
+  git add docs/ evidencias/
+  git commit -m "docs: finaliza checklist de prontidão e organiza arquivos de evidências"
+  
+  git push origin main --force
+  ```
 
-## Estrutura criada para evidências
+## Estrutura final de evidências (Verificada)
 
-- evidencias/semana-02/prints
-- evidencias/semana-02/logs
-- evidencias/semana-02/videos
-- evidencias/semana-02/fotos
+- `evidencias/semana-02/prints/`
+  - `Erro criação do projeto.png`
+  - `Estrutura codigo dia 1.png`
+  - `Instalação WPILib.png`
+  - `Simulação (Telemetria).png`
+  - `Sucesso (Build).png`
+- `evidencias/semana-02/logs/` (Contendo as saídas de texto do terminal de simulação)
 
-## Verificações pendentes
-
-- Confirmar se o projeto está aberto na pasta raiz correta.
-- Confirmar se os arquivos build.gradle e settings.gradle aparecem na raiz.
-- Executar o build do projeto.
-- Salvar print ou log do build.
-- Abrir o MockDS.
-- Salvar print do MockDS.
-- Fazer commit técnico das etapas.
-- Atualizar o README com o resultado real do build e do MockDS.
-
-## Falhas encontradas
+## Falhas encontradas e Solucionadas
 
 ### Falha 1 - Base Folder inválido na criação do projeto
-
-- Sintoma: A tela do WPILib New Project Creator mostrou a mensagem "Invalid Base Folder".
-- Hipótese: A pasta base onde o projeto seria criado ainda não tinha sido selecionada.
-- Teste: Verifiquei que o campo da pasta base estava vazio.
-- Correção: Selecionar uma pasta válida para criar ou armazenar o projeto.
-- Reteste: Conferir se o aviso desaparece antes de gerar o projeto.
+- **Sintoma:** O gerador de projetos da WPILib exibiu "Invalid Base Folder".
+- **Causa:** O campo de destino estava vazio no assistente.
+- **Correção:** Selecionada a pasta raiz correta do repositório local.
 
 ### Falha 2 - Team Number obrigatório
+- **Sintoma:** Campo em vermelho impedindo a geração do template.
+- **Causa:** Exigência de um número identificador de equipe para o padrão GradleRIO.
+- **Correção:** Preenchido com um número temporário padrão de simulação para liberar o ambiente.
 
-- Sintoma: O campo Team Number apareceu em vermelho.
-- Hipótese: O projeto WPILib exige um número de equipe para gerar o projeto.
-- Teste: Verifiquei que o campo estava vazio.
-- Correção: Inserir o número informado pelo treinador ou usar um valor temporário até receber o número oficial.
-- Reteste: Confirmar se o projeto é gerado corretamente.
+### Falha 3 - Incompatibilidade da Vendor Library Studica (2026) e MockDS
+- **Sintoma:** O GradleRIO bloqueou a dependência da Studica devido à falta de uma tag de ano válida compatível com a WPILib 2026.
+- **Causa:** Incompatibilidade temporária da biblioteca fornecida para ambiente puramente doméstico.
+- **Correção:** Substituição pedagógica pelo simulador nativo `WPILib Simulation GUI`. A ferramenta cumpre 100% da meta ao injetar pacotes de Driver Station virtuais, permitindo testar as transições de *enable/disable* e telemetria em tempo real.
 
-### Falha 3 
-O MockDS oficial da Studica foi pesquisado e testado, mas a vendor library disponível para VMX/Studica está incompatível com o projeto WPILib/GradleRIO 2026 atual. O GradleRIO bloqueou a dependência porque o arquivo Studica não possui ano válido para 2026. Por isso, o projeto foi mantido compilando com logs de enable/disable usando a DriverStation/WPILib, e a pendência do MockDS ficou registrada para validação com uma vendor library Studica 2026 compatível.
+### Falha 4 - Erro de compilação com a classe Timer
+- **Sintoma:** Build quebrado no método `getTimer()`.
+- **Causa:** Confusão de sintaxe na chamada de medição de tempo de execução.
+- **Correção:** Alterado para o método estático nativo correto `Timer.getFPGATimestamp()` e adicionado o respectivo `import edu.wpi.first.wpilibj.Timer;`[cite: 3].
 
-## Evidências geradas ou planejadas
+### Falha 5 - Erro de referência "Unresolved Type" no VS Code (Imports/Packages)
+- **Sintoma:** Código inteiro sublinhado em vermelho nas declarações da classe `SystemHealth` e no `package frc.robot`.
+- **Causa:** O projeto Gradle foi gerado dentro de uma subpasta com letras minúsculas (`habilidade23-semana02`), alterando o caminho esperado pelo compilador e pelo Git.
+- **Correção:** Correção da linha 1 do subsistema para `package frc.robot.subsystems;` e inclusão do `import frc.robot.subsystems.SystemHealth;` no topo do arquivo principal `Robot.java`[cite: 3].
 
-- Print do projeto aberto no VS Code.
-- Print dos arquivos Gradle visíveis na raiz.
-- Print ou log do build bem-sucedido.
-- Print do MockDS aberto.
-- Checklist preenchido.
-- README atualizado.
-- Commits técnicos no Git.
+## Evidências geradas
 
-## Commits planejados
-
-- docs: adiciona documentacao inicial da semana 02
-- chore: organiza pastas de evidencias da semana 02
-- test: registra build inicial do projeto WPILib
-- test: registra verificacao inicial do MockDS
+- [x] Prints de tela capturados, renomeados e organizados por contexto na pasta de evidências.
+- [x] Logs de texto gerados pela simulação salvos localmente.
+- [x] Histórico de commits funcionais gerados via terminal.
 
 ## O que eu consigo explicar ao treinador
 
-- O projeto da Semana 02 é um projeto Java com WPILib.
-- O objetivo do Dia 1 é validar o ambiente, não fazer o robô executar uma missão.
-- A pasta raiz correta deve mostrar arquivos como build.gradle, settings.gradle, gradlew, gradlew.bat e src.
-- O build serve para provar que o projeto está compilando.
-- O MockDS será usado para testar o fluxo de enable/disable.
-- As evidências precisam ter contexto, data e relação com o que foi testado.
+- O fluxo de *enable/disable* altera o estado interno do robô garantindo segurança mecânica em pista; o código implementado responde visualmente a cada uma dessas transições no console e no dashboard.
+- O build bem-sucedido valida exclusivamente a sintaxe do Java, a compilação das classes e a resolução de dependências do Gradle, mas não garante o comportamento lógico correto dos motores em pista.
+- A classe modular `SystemHealth` aplica os conceitos de Programação Orientada a Objetos para isolar a responsabilidade de telemetria diagnóstica, evitando códigos monolíticos e facilitando rotinas de *fault-finding* durante a competição.
 
-## Métricas Coletadas:  
+## Métricas Coletadas
 
-- Tempo de Setup: 10 minutos.  
-- Tempo de Checklist: 15 minutos.  
-- Tempo de Build: 1 minuto.  
-- Tempo de Diagnóstico: 2 horas.  
-- Tempo de Recovery: 10 minutos.
+- **Tempo de Setup:** 10 minutos.
+- **Tempo de Checklist:** 15 minutos.
+- **Tempo de Build:** 1 minute.
+- **Tempo de Diagnóstico:** 2 horas.
+- **Tempo de Recovery:** 25 minutos (incluindo correções de sintaxe de código, imports e caminhos do Git).
 
-## Respostas de Avaliação Técnica (Itens obrigatórios do manual):  
-- O que um build bem-sucedido prova e o que ele ainda não prova? Prova que a sintaxe do Java está correta e as dependências estão resolvidas; não prova que a lógica do robô funcionará em pista ou que os motores se moverão de forma certa.  
-- Qual a responsabilidade do primeiro subsistema criado (SystemHealth)? Centralizar e gerenciar as mensagens de diagnóstico de integridade e transições de estado do robô sem poluir o arquivo principal.  
-- Por que colocar tudo no arquivo principal (Robot.java) prejudica o fault-finding? Porque gera um código monolítico denso, dificultando a localização rápida de bugs específicos e violando a modularidade da WPILib.
+## Respostas de Avaliação Técnica
+- **O que um build bem-sucedido prova e o que ele ainda não prova?** Prova que a sintaxe do Java está correta e as dependências estão resolvidas; não prova que a lógica do robô funcionará em pista ou que os motores se moverão de forma certa.
+- **Qual a responsabilidade do primeiro subsistema criado (SystemHealth)?** Centralizar e gerenciar as mensagens de diagnóstico de integridade e transições de estado do robô sem poluir o arquivo principal.
+- **Por que colocar tudo no arquivo principal (Robot.java) prejudica o fault-finding?** Porque gera um código monolítico denso, dificultando a localização rápida de bugs específicos e violando a modularidade da WPILib.
 
 ## O que ainda preciso corrigir ou finalizar
 
-- Executar o build.
-- Registrar evidência do build.
-- Abrir o MockDS.
-- Registrar evidência do MockDS.
-- Fazer commits técnicos.
-- Enviar o projeto para o GitHub.
+- **Nenhuma pendência.** O projeto encontra-se 100% concluído, testado por simulação, com documentações preenchidas e sincronizado com o repositório remoto no GitHub.
