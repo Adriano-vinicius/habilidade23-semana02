@@ -1,0 +1,22 @@
+PS C:\Users\senai\habilidade23-semana02>  ${env:HALSIM_EXTENSIONS}='C:\Users\senai\habilidade23-semana02\build\jni\release\halsim_gui.dll;C:\Users\senai\habilidade23-semana02\build\jni\release\halsim_ds_socket.dll;'; ${env:PATH}='C:\Users\senai\habilidade23-semana02\build\jni\release;C:\WINDOWS\system32\'; & 'C:\Users\Public\wpilib\2026\jdk\bin\java.exe' '-agentlib:jdwp=transport=dt_socket,server=n,suspend=y,address=localhost:56966' '@C:\Users\senai\AppData\Local\Temp\cp_8b46wuhq7t0lq5q9lp1z6rl44.argfile' 'frc.robot.Main' 
+HAL Extensions: Attempting to load: halsim_gui
+Simulator GUI Initializing.
+Simulator GUI Initialized!
+HAL Extensions: Successfully loaded extension
+HAL Extensions: Attempting to load: halsim_ds_socket
+DriverStationSocket Initializing.
+DriverStationSocket Initialized!
+HAL Extensions: Successfully loaded extension
+********** Robot program starting **********
+NT: Listening on NT3 port 1735, NT4 port 5810
+[HELLO ROBOT] Sistema iniciado com sucesso!
+[HELLO ROBOT] Sistema iniciado com sucesso!
+********** Robot program startup complete **********
+[MODO] Robo foi DESABILITADO!
+[MODO] Robo foi DESABILITADO!
+Default simulationPeriodic() method... Override me!
+[MODO] Robo entrou em modo Autônomo!
+[MODO] Robo foi DESABILITADO!
+[MODO] Robo foi DESABILITADO!
+[MODO] Robo entrou em modo Teleoperado - Pronto para comandos!
+[MODO] Robo entrou em modo Teleoperado - Pronto para comandos!
