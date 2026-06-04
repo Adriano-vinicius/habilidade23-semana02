@@ -1,0 +1,5 @@
+### 🎥 Evidência 02: Vídeo de Demonstração da Telemetria
+* **Arquivo:** `evidencias/semana-02/videos/video_demonstracao_telemetria.mp4`
+* **Duração:** 00:41
+* **Descrição Técnica:** Demonstração prática em ambiente de simulação desktop (HALSIM/MockDS) comprovando o ciclo de vida inicial do robô. O vídeo evidencia o boot do sistema em modo seguro (`Disabled`), seguido pela transição manual para o estado ativado (`Enabled`). O terminal do VS Code exibe em tempo real o disparo dos logs estruturados via classe modular `SystemHealth`, registrando cada alteração de estado acompanhada do respectivo timestamp do processador simulado (`Timer.getFPGATimestamp()`).
+* **Vídeo:** https://canva.link/9hmspmidptchxpx
