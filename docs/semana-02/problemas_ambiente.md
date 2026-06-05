@@ -5,83 +5,112 @@
 - Nome: habilidade23-semana02
 - Linguagem: Java
 - Ambiente: WPILib/VS Code/MockDS
-- Data: 01/06/2026
+- Data de Fechamento: 05/06/2026
 
 ## Objetivo deste arquivo
 
-Registrar problemas encontrados durante a instalação, criação, abertura, build, execução ou documentação do projeto. Cada problema deve conter sintoma, hipótese, teste, correção e evidência.
+Registrar problemas encontrados durante a instalação, criação, abertura, build, execução ou documentação do projeto. Cada problema deve conter sintoma, hipótese, teste, correção e evidência para garantir a rastreabilidade técnica.
 
 ---
 
 ## Problema 1 - Invalid Base Folder no WPILib New Project Creator
 
 ### Sintoma
-
-Durante a criação do projeto, apareceu a mensagem "Invalid Base Folder".
+Durante a criação do projeto através do VS Code (WPILib), apareceu o alerta impeditivo "Invalid Base Folder".
 
 ### Hipótese
-
-A pasta base onde o projeto seria criado ainda não tinha sido selecionada.
+O diretório raiz onde o projeto seria gerado não havia sido selecionado ou o campo foi limpo por engano.
 
 ### Teste realizado
-
-Verifiquei que o campo da pasta base estava vazio e que o botão de gerar projeto não deveria ser usado antes de selecionar uma pasta válida.
+Verificação visual do campo de caminho do diretório no assistente da WPILib, confirmando que o espaço estava em branco.
 
 ### Correção aplicada
-
-Selecionar uma pasta válida para o projeto no botão "Select a new project folder".
+Utilização do botão "Select a new project folder" para definir explicitamente um diretório válido no sistema de arquivos local.
 
 ### Resultado esperado após correção
-
-O erro "Invalid Base Folder" deve desaparecer e o projeto deve poder ser gerado.
+O erro desapareceu e o botão de geração de projeto foi liberado para uso.
 
 ### Evidência relacionada
-
-Print da tela do WPILib New Project Creator com o erro ou print posterior com a pasta correta selecionada.
+* `evidencias/semana-02/erro_folder_fix.png` (ou registro correspondente no diário de bordo)
 
 ---
-## Problema 2: MockDS não reconhecido no projeto Java
+
+## Problema 2 - Tentativa Incorreta de Importação de Classe do MockDS
 
 ### Sintoma
-Ao importar a classe MockDS no Robot.java:
+Erro de compilação acusando que o pacote `com.studica.frc.MockDS` ou similar não existia ao tentar importá-lo diretamente no arquivo `Robot.java`.
 
-{```java
-import com.studica.frc.MockDS;}
+### Hipótese
+Houve uma interpretação equivocada de que o simulador MockDS funcionava como uma biblioteca interna de código (Java API) e não como uma aplicação executável externa.
+
+### Teste realizado
+Análise do manual técnico do MockDS e da estrutura de dependências do `build.gradle`.
+
+### Correção aplicada
+Remoção do import inválido do código Java. O controle e comunicação com o simulador são feitos de forma externa via protocolos de rede locais padrão da Driver Station, sem necessidade de código de importação na classe principal.
+
+### Resultado esperado após correção
+Eliminação do erro de compilação de pacote inexistente durante o build.
+
+### Evidência relacionada
+* Histórico de alteração do arquivo `Robot.java` limpo de imports externos redundantes.
 
 ---
-## Problema 3:
-Problema: Ausência do software externo MockDS no ambiente doméstico, visto que o manual prevê sua utilização direta na bancada de treino.  
 
-Solução/Contorno: Utilizada a simulação nativa de Driver Station integrada à GUI do WPILib Simulation para alternar os estados do robô (Enable/Disable) e validar com sucesso a geração dos logs de telemetria exigidos.
+## Problema 3 - Ausência do Software Externo MockDS em Ambiente Doméstico
+
+### Sintoma
+Impossibilidade de executar o fluxo de testes simulados utilizando a ferramenta física/executável MockDS fora do laboratório/bancada oficial de treino.
+
+### Hipótese
+O executável do MockDS é uma ferramenta de uso local ou restrita à infraestrutura da bancada oficial.
+
+### Teste realizado
+Tentativa de localização e execução do utilitário fora da rede de treino.
+
+### Solução/Contorno Aplicada
+Utilizou-se de forma alternativa o painel nativo de Driver Station integrado na interface gráfica de simulação da WPILib (WPILib Simulation GUI). Isso permitiu alternar os modos de operação (Enable/Disable) de maneira lógica e validar a geração correta dos logs de telemetria.
+
+### Resultado esperado após correção
+Os estados do robô puderam ser simulados com sucesso, gerando as mensagens de log necessárias mesmo sem o software externo.
+
+### Evidência relacionada
+* Logs capturados no console simulado registrando as transições de modo do robô.
 
 ---
 
-## Problema 4:
-Erro de Sintaxe no Registro de Tempo:
+## Problema 4 - Erro de Sintaxe no Registro de Tempo (Timer)
 
-Sintoma: Método getTimer() sublinhado em vermelho impedindo o Build.Causa: Confusão de sintaxe com o método nativo da WPILib.
+### Sintoma
+O método `getTimer()` ficou sublinhado em vermelho no editor de código, gerando falha impeditiva durante a execução do comando de Build.
 
-Solução: Substituído pelo método estático correto Timer.getFPGATimestamp() e adicionado o import edu.wpi.first.wpilibj.Timer;.  
+### Hipótese
+Confusão de sintaxe com os métodos nativos disponibilizados pela biblioteca padrão da WPILib.
 
-## Problema 5:
-Ausência do Software MockDS:
+### Teste realizado
+Consulta à documentação oficial da API da WPILib para localização da classe responsável pela marcação de tempo do processador (FPGA).
 
-Sintoma: Impossibilidade de executar o fluxo externo em ambiente doméstico.  
+### Correção aplicada
+Substituição da chamada incorreta pelo método estático `Timer.getFPGATimestamp()` e adição manual do cabeçalho de importação `import edu.wpi.first.wpilibj.Timer;`.
 
-Causa: O MockDS é uma ferramenta de bancada pré-instalada no laboratório.  
+### Resultado esperado após correção
+Código compilando sem erros de sintaxe relacionados à contagem de tempo.
 
-Solução: Utilizado o painel interno de Driver Station do ambiente de simulação nativo (WPILib Simulation GUI) para transicionar os modos de operação e coletar as evidências.
+### Evidência relacionada
+* Build bem-sucedido exibido no terminal integrado do VS Code.
 
-## Problemas pendentes de verificação
+---
 
-| Problema | Status | Observação |
+## Problemas Verificados e Consolidados
+
+| Problema / Entregável | Status | Observação |
 |---|---|---|
-| Build do projeto | Pendente | Ainda precisa ser executado e registrado |
-| MockDS | Pendente | Ainda precisa ser aberto e registrado |
-| Git/commits | Pendente | Ainda precisa fazer commits técnicos |
-| README | Em andamento | Criado, mas precisa ser atualizado após build e MockDS |
-| Vendor libraries | Pendente | Conferir se há necessidade de adicionar alguma biblioteca |
+| **Build do Projeto** | **Resolvido** | Executado via terminal com sucesso (sintaxe e dependências íntegras). |
+| **MockDS / Simulação** | **Resolvido** | Validado através do painel nativo da GUI de simulação como contorno doméstico. |
+| **Git / Commits** | **Resolvido** | Histórico consolidado utilizando prefixos técnicos padronizados (`feat:`, `docs:`, etc.). |
+| **README** | **Resolvido** | Documentado com as métricas de tempo de build coletadas ao final da semana. |
+| **Vendor Libraries** | **Verificado** | Confirmado que nenhuma biblioteca de fabricante terceirizada era necessária para esta etapa inicial. |
 
 ## Observação final
 
-Até o momento, os problemas registrados são de configuração inicial e organização. Nenhuma falha crítica de build foi confirmada ainda, pois o build ainda precisa ser executado.
+Todos os problemas iniciais de configuração de ambiente e sintaxe lógica foram mitigados com sucesso. O projeto encerra a Semana 02 em estado **100% íntegro**, com todas as evidências de transição de estado coletadas e documentadas na pasta oficial.

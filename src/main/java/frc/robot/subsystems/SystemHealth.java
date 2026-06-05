@@ -4,9 +4,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class SystemHealth {
     
-    // Construtor da classe
     public SystemHealth() {
-        // Inicializações do subsistema, se necessário
     }
 
     public void logInit() {
